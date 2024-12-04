@@ -1,0 +1,98 @@
+export interface PDFBillResponse {
+  status: string;
+  message: string;
+  data: BillDataResponse;
+  code: number;
+}
+
+export interface BillDataResponse {
+  ar: BillData;
+  meterAccount: MeterData;
+}
+
+export interface BillData {
+  id: number;
+  meterAccountId: number;
+  fromDate: string;
+  toDate: string;
+  nextDate: string;
+  billDate: string;
+  readingDate: string;
+  cRead: number;
+  pRead: number;
+  kwhConsume: number;
+  distribution: number;
+  generation: number;
+  sLoss: number;
+  transmission: number;
+  subsidies: number;
+  gTax: number;
+  fitAll: number;
+  applied: number;
+  other: number;
+  uCharges: number;
+  rate: number;
+  amount: number;
+  referenceNumber: string;
+  dueDate: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  prevBill: number;
+  meterAccount: ArrayMeterData[];
+}
+
+export interface MeterData {
+  id: number;
+  coopId: number;
+  meterNumber: number;
+  meterAccountName: string;
+  meterAddress: string;
+  customerType: string;
+  meterActivated: boolean;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  accountRegistry: AccountRegistry[];
+}
+
+export interface AccountRegistry {
+  id: number;
+  userId: number;
+  meterId: number;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  user: User;
+}
+
+export interface User {
+  id: number;
+  first_name: string;
+  middle_name: string;
+  last_name: string;
+  birthdate: string;
+  email: string;
+  contact_number: string;
+  gender: string;
+  address: string;
+  role: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+}
+
+interface ArrayMeterData {
+  id: number;
+  coopId: number;
+  meterNumber: number;
+  meterAccountName: string;
+  meterAddress: string;
+  customerType: string;
+  meterActivated: boolean;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  accountRegistry: AccountRegistry[];
+}
